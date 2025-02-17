@@ -38,11 +38,11 @@ public class PlayerController : MonoBehaviour
         // // Makes sure that the player is facing the right direction
        if(speedX > 0 && !facingRight)
        {
-            FlipCharacer();
+            FlipCharacter();
        }
        else if (speedX < 0 && facingRight)
        {
-            FlipCharacer();
+            FlipCharacter();
        }
 
        // // Handles limits on players' movement to ensure that they don't walk off the screen
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
        }
     }
 
-    private void FlipCharacer()
+    private void FlipCharacter()
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(other.CompareTag("Animal") && animal.hungerLevels < 100)
         {
-            // // Blah
+            animal.hungerLevels += 100 - animal.hungerLevels;
 
         }
     }

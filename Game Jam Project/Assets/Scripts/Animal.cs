@@ -6,6 +6,7 @@ using UnityEngine;
 public class Animal : MonoBehaviour
 {
     public float hungerLevels = 100;
+    public float hungerDecrement = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class Animal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hungerLevels -= 1;
+        hungerLevels -= hungerDecrement;
 
         if(hungerLevels <= 30)
         {
