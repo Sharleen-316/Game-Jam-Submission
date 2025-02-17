@@ -8,6 +8,8 @@ public class Plant : MonoBehaviour
     public float waterDecrement = 1;
     public float waterMin = 30;
 
+    public float timer = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +24,15 @@ public class Plant : MonoBehaviour
        {
             // // Insert code for wilting animation
        }
+    }
 
-       if(waterLevels > 0)
+    private void FixedUpdate()
+    {
+        Time.fixedDeltaTime = timer;
+        
+        if(waterLevels > 0)
        {
+            // // Slowly decreases the how much water the plants have
             waterLevels -= waterDecrement;
        }
 

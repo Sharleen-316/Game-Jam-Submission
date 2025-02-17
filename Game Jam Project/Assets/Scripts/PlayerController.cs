@@ -75,19 +75,4 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    // // Change this to make it work when you click on an object
-    private void OnCollisionEnter2D(Collider2D other)
-    {
-        if(other.CompareTag("Feed"))
-        {
-            animalFeed += 1;
-        }
-        else if(other.CompareTag("Animal") && animal.hungerLevels < 100)
-        {
-            animalFeed -= 100 - animal.hungerLevels;
-            animal.hungerLevels += 100 - animal.hungerLevels;
-
-        }
-    }
-
 }

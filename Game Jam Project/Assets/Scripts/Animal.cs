@@ -10,6 +10,8 @@ public class Animal : MonoBehaviour
 
     public float hungerMin = 30;
 
+    public float timer = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +26,18 @@ public class Animal : MonoBehaviour
         {
             // // Insert code for exclamation animation
         }
+        
+    }
+
+    private void FixedUpdate()
+    {
+        Time.fixedDeltaTime = timer;
 
         if(hungerLevels > 0)
         {
+            // // Slowly decreases the animal's hunger levels
             hungerLevels -= hungerDecrement;
-            UnityEngine.Debug.Log(hungerLevels);
+            //UnityEngine.Debug.Log(hungerLevels);
         }
-        
     }
 }
