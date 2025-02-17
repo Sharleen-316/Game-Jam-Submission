@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     // // Variables:
@@ -12,15 +13,17 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed; // // Speed that player moves at
     private bool facingRight = true; // // Determines which way player is facing
 
-    private float speedX;
+    private float speedX; // // Direction in the x-axis
 
-    private float speedY;
+    private float speedY; // // Direction in the y-axis
 
-    private float animalFeed;
+    public float animalFeed = 1000; // // Amount of animal feed player has on hand
 
-    public Animal animal;
+    public Animal animal; // // Reference to Animal script
 
 
+
+    
     // Start is called before the first frame update
     private void Start()
     {
@@ -72,6 +75,7 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
+    // // Change this to make it work when you click on an object
     private void OnCollisionEnter2D(Collider2D other)
     {
         if(other.CompareTag("Feed"))
@@ -80,10 +84,10 @@ public class PlayerController : MonoBehaviour
         }
         else if(other.CompareTag("Animal") && animal.hungerLevels < 100)
         {
+            animalFeed -= 100 - animal.hungerLevels;
             animal.hungerLevels += 100 - animal.hungerLevels;
 
         }
     }
-
 
 }
