@@ -13,13 +13,11 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed; // // Speed that player moves at
     private bool facingRight = true; // // Determines which way player is facing
 
-    private float speedX; // // Direction in the x-axis
+    private float directionX; // // Direction in the x-axis
 
-    private float speedY; // // Direction in the y-axis
+    private float directionY; // // Direction in the y-axis
 
     public float animalFeed = 1000; // // Amount of animal feed player has on hand
-
-    public Animal animal; // // Reference to Animal script
 
 
 
@@ -34,16 +32,16 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // // Gets the direction that the player should move in
-       speedX = Input.GetAxisRaw("Horizontal") * movementSpeed;
-       speedY = Input.GetAxisRaw("Vertical") * movementSpeed;
-       rb.velocity = new UnityEngine.Vector2(speedX, speedY);
+       directionX = Input.GetAxisRaw("Horizontal") * movementSpeed;
+       directionY = Input.GetAxisRaw("Vertical") * movementSpeed;
+       rb.velocity = new UnityEngine.Vector2(directionX, directionY);
 
         // // Makes sure that the player is facing the right direction
-       if(speedX > 0 && !facingRight)
+       if(directionX > 0 && !facingRight)
        {
             FlipCharacter();
        }
-       else if (speedX < 0 && facingRight)
+       else if (directionX < 0 && facingRight)
        {
             FlipCharacter();
        }
